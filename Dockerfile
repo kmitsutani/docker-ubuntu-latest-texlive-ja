@@ -2,12 +2,13 @@
 # Released under the MIT license
 # https://opensource.org/licenses/MIT
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
-MAINTAINER Futa HIRAKOBA
+MAINTAINER Mitsutani, Kazuya 
+# Folked from Futa HIRAKOBA's Dockerfile
 ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y gnupg gnupg1 gnupg2
+RUN apt-key update && apt-get update && apt-get install -y \
     xdvik-ja \ 
     evince \
     texlive-lang-cjk \
@@ -26,4 +27,3 @@ WORKDIR /workdir
 
 VOLUME ["/workdir"]
 
-CMD ["bash"]
